@@ -1,0 +1,9 @@
+## esp-link on esp side of esp14
+## eforth on stm8s side
+
+Connect with telnet/folie
+
+ADC Pins: 
+  Purple wire, Channel A, PC4, AIN2
+  Blue wire, Channel B, PD2, AIN3
+

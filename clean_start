@@ -1,0 +1,2 @@
+stm8flash -c stlinkv2 -p stm8s003f3 -w ESP-14.ihx
+folie -p 192.168.1.24:23
