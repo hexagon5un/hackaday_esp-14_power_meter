@@ -5,6 +5,7 @@
 : clear dup c@ rot not and swap c! ;
 : bit dup if 1 swap 0 do 2 * loop else drop 1 then ;
 \ pause, b/c nvm writes takes too long
+: foo 00 ; 
 : bin 2 base ! ;
 : dec 10 base ! ;
 : bin. bin . dec ;
@@ -13,7 +14,9 @@
 : pa3.init pa3 dup pa_ddr set pa_cr1 set ;
 : pa3.on pa3 pa_odr set ;
 : pa3.toggle pa3 pa_odr toggle ;
+
 : pa3.off pa3 pa_odr clear ;
+
 
 
 \ : porta@ 

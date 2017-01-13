@@ -17,6 +17,7 @@ variable avg
 : one.cycle avg @ dup 9 set.timer begin minmax timer? until - ;
 
 variable threshold 
+
 : is.on? ( -- boolean ) one.cycle threshold @ < not ;
 
 \ and there you have it.  
