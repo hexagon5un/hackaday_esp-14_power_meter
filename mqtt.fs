@@ -1,34 +1,9 @@
 \ include timer.fs
 hex
 
-: lshift 0 do 2* loop ;
-: rshift  0 do 2/ $7fff and loop ;
-variable crc-sum
-: crc.reset 0 crc-sum ! ;
-
-: crc+ ( new byte -- ) 
-	crc-sum @ xor
-	dup 8 rshift swap 8 lshift or
-	dup $ff00 and 4 lshift xor
-	dup 8 rshift 4 rshift xor 
-	dup $ff00 and 5 rshift xor
-	crc-sum !
-;
-
-: d crc+ crc-sum @ . ;
-: hex. dup hex . decimal ;
-: bin. dup bin . decimal ;
-
-
-  \ acc ^= b;
-  \ acc = (acc >> 8) | (acc << 8);
-  \ acc ^= (acc & 0xff00) << 4;
-  \ acc ^= (acc >> 8) >> 4;
-  \ acc ^= (acc & 0xff00) >> 5;
-  \ return acc;
-
 nvm
 
+\ needs refactor to remove leading, trailing c0, checksum
 : emits ( depth -- ) 1 + dup 0 do dup i - 2 * sp@ + @ emit loop drop ;  
   \ reverses stack, emits
 : cleanup ( depth -- ) 0 do drop loop ;
