@@ -1,5 +1,7 @@
+nvm
 include timer.fs
 include power_meter.fs
+ram
 
 \ default -- have to pick a channel
 \ washer is.on? .
