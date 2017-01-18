@@ -10,6 +10,8 @@ ADC Pins:
 ## Software
 
 include h to get baud rate right after init
-include d to get mqtt services up and running
+        to get mqtt services up and running
+
+include d for experimental/development in ram
 
 

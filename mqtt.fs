@@ -1,6 +1,4 @@
 \ needs crc.fs, messages.fs
-
-
 : slip $c0 emit ;
 
 \ emits whole stack
@@ -13,10 +11,10 @@
 
 \ wraps up messages, sends them
 \ example: washer on dryer off
-: washer
+: mqtt.washer
 	mqtt.preamble washer.topic 
 ;
-: dryer
+: mqtt.dryer
 	mqtt.preamble dryer.topic 
 ;
 : on

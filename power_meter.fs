@@ -23,13 +23,15 @@ variable threshold
 
 \ and there you have it.  
 \ switch channels (chan.a! chan.b!) and then is.on?
-: rr.single set.average is.on? if pa3.on else pa3.off set.average then ;
-: rr  begin rr.single ?key until ;
+\ : rr.single set.average is.on? if pa3.on else pa3.off set.average then ;
+\ : rr  begin rr.single ?key until ;
 
 \ default -- have to pick a channel
 \ washer is.on? .
+: foo sync send washer is.on? if mqtt.washer on else mqtt.washer off then
+                dryer is.on? if mqtt.dryer on else mqtt.dryer off then ;
 
-
+: fooloop begin foo 100 blocking.wait ?key until ;
 
 
 
