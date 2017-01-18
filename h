@@ -20,6 +20,9 @@ include messages.fs
 include mqtt.fs
 ram
 
+\ include timer.fs
+\ include power_meter.fs
+
 \ savepoint: stm8flash -c stlinkv2 -p stm8s003f3 -r base-115200-mqtt.ihx
 
 

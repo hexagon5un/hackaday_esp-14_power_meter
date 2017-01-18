@@ -8,9 +8,10 @@
 
 \ appends crc, transmits as slip-escaped
 : send crc slip emits slip ;
+: sync sync send ;  \ overwrites to make easier
 
 \ wraps up messages, sends them
-\ example: washer on dryer off
+\ example: sync washer on dryer off
 : mqtt.washer
 	mqtt.preamble washer.topic 
 ;
