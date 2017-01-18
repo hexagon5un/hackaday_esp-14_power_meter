@@ -1,3 +1,4 @@
+\ requires timer.fs
 
 : round.div ( numerator divisor -- product ) dup 2/ rot + swap / ; 
 variable ewma_factor 
