@@ -7,3 +7,9 @@ ADC Pins:
   Purple wire, Channel A, PC4, AIN2
   Blue wire, Channel B, PD2, AIN3
 
+## Software
+
+include h to get baud rate right after init
+include d to get mqtt services up and running
+
+

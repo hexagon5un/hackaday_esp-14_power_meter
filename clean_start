@@ -1,5 +1,5 @@
 stm8flash -c stlinkv2 -p stm8s003f3 -w base-115200.ihx
-echo include h
+echo include d
 folie -p 192.168.1.12:23
 
 

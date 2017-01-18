@@ -8,7 +8,7 @@ include misc.fs
 ' init 'boot !
 
 ram
-\ savepoint: stm8flash -c stlinkv2 -p stm8s003f3 -r base.ihx
+\ savepoint: stm8flash -c stlinkv2 -p stm8s003f3 -r base-115200.ihx
 
 
 \ include d
