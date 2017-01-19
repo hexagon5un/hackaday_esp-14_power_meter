@@ -4,8 +4,9 @@ echo
 echo Change baud rate to 9600
 echo issue reset
 echo then "include h"
-echo 
+echo and exit to save image 
 
+./9600
 folie -p 192.168.1.12:23
 
 ## And make a copy for later
@@ -17,5 +18,8 @@ echo  stm8flash -c stlinkv2 -p stm8s003f3 -w base-115200-mqtt.ihx
 echo to reload.
 echo
 echo Fire up folie, change back to 115200 baud, include d to continue.
-echo
+echo 
+
+./115200
+folie -p 192.168.1.12:23
 

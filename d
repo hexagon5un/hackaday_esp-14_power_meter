@@ -1,16 +1,24 @@
+
+\ Adds boot-time delay to opt out of endless reportloop
+
 nvm
-include timer.fs
-include power_meter.fs
+
+: reportloop begin report 2000 blocking.wait again ;
+
+: init-timeout 
+	." Entering endless report loop in 10 sec." cr
+	." Press any key to escape." cr 
+	-1 
+	2000 tim + 
+	begin 
+	?key if drop drop drop 0 ." Aborting..." exit then
+	dup tim = until drop ;
+
+: init2 init init-timeout if ." GO!" cr reportloop then ; 
+
+' init2 'boot !
+
 ram
-
-\ default -- have to pick a channel
-\ washer is.on? .
-
-: report sync washer is.on? if mqtt.washer on else mqtt.washer off then
-                dryer is.on? if mqtt.dryer on else mqtt.dryer off then ;
-
-
-
 
 
 

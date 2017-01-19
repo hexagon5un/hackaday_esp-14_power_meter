@@ -50,6 +50,19 @@ hex
 	01 00  00 00  00 00  \ retain
 ;
 
-dec
+decimal
+: toascii 10 /mod 10 /mod 
+  48 + rot 48 + rot 48  + swap ;
+hex
+
+
+: message.value
+        >r 
+	03 00  r> toascii 00  \ data
+	02 00  03 00   00 00  \ len of data  
+;
+
+decimal
+
 
 

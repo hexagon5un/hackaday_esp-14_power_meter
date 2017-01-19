@@ -24,3 +24,6 @@
 : off
 	message.off qos.and.retain send
 ;
+
+: value ( n -- ) message.value qos.and.retain send ;
+
