@@ -1,0 +1,3 @@
+mosquitto_sub -t home/basement/washer -h 192.168.1.2 | ( while read f ; do echo `date +%s`, $f | tee -a washer_log ; done )
+
+

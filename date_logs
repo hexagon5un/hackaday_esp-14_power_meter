@@ -1,0 +1,3 @@
+mv washer_log washer_log_`now`
+mv dryer_log dryer_log_`now`
+

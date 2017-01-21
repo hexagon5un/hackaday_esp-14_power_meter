@@ -1,0 +1,3 @@
+source ./ip
+folie -p ${ip}:23
+

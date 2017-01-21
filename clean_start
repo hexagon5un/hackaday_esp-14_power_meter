@@ -1,3 +1,4 @@
+source ./ip
 stm8flash -c stlinkv2 -p stm8s003f3 -w ESP-14.ihx
 
 echo
@@ -7,7 +8,7 @@ echo then "include h"
 echo and exit to save image 
 
 ./9600
-folie -p 192.168.1.12:23
+folie -p ${ip}:23
 
 ## And make a copy for later
 stm8flash -c stlinkv2 -p stm8s003f3 -r base-115200-mqtt.ihx
@@ -21,5 +22,5 @@ echo Fire up folie, change back to 115200 baud, include d to continue.
 echo 
 
 ./115200
-folie -p 192.168.1.12:23
+folie -p ${ip}:23
 

@@ -1,1 +1,2 @@
-curl  -XPOST "http://192.168.1.12/console/baud?rate=115200"
+source ./ip
+curl  -XPOST "http://${ip}/console/baud?rate=115200"
