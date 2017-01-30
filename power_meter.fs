@@ -7,26 +7,20 @@
 : dryer    3 adc! ;
 
 \ max, min of smoothed values 
+\ some rounding error here.  Meh.
 : ewma ( sum -- adc + sum ) 15 * adc@ + 16 round.div ;
 : minmax dup ewma min swap dup ewma max swap ;
 
-\ measure average value, then measure max, min relative to it
+\ measure average value, then use as baseline for max/min 
 : 5ms 1 blocking.wait ;
 : average 0 20 0 do adc@ + 5ms loop 20 / ;
 
-
-\ avg dup initializes min/max to midpoint
 \ 9*5 ms = two 20ms 50 Hz cycles (?) plus a bit
-
 : one.cycle average dup 9 set.timer 
         begin minmax timer? until - ;
 
-\ Note: magic constant here -- 
-\ depends on amount of smoothing in EWMA
-\ and minimum wattage we want to detect
-
-: is.on? ( -- boolean ) one.cycle 7 < 0= ;
-
+\ Sends off the max/min difference for washer and dryer
+\ This is what you want to call periodically
 : report 
 	sync sync 
 	mqtt.washer washer one.cycle value 
