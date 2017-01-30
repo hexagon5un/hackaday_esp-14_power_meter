@@ -1,0 +1,1 @@
+mosquitto_sub -t home/basement/washer -h 192.168.1.2 | ( while read f ; do echo "0 k $f 3 / p " | dc | mosquitto_pub -h 192.168.1.2 -t home/lappy3000/memory -s; done )
