@@ -1,0 +1,15 @@
+#! /usr/bin/bash 
+
+function plot {
+	templog=${1}_log_`now`
+	cp ${1}_log $templog
+	./plot
+	sxiv $templog.png
+	rm $templog $templog.png
+}
+
+[[ -f dryer_log ]] && plot dryer
+[[ -f washer_log ]] && plot washer
+
+
+
