@@ -1,0 +1,45 @@
+
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> dryers = dir(pattern="dryer_log_\\d{4}-\\d{2}-\\d{2}-\\d{6}$")
+> 
+> for (f in dryers){
++ 	png(paste(f, ".png", sep=""), width=1024, height=800)
++ 	tt <- read.csv(f, col.names=c("time", "power"))
++ 	tt$time <- as.POSIXct(tt$time, origin="1970-01-01")
++ 	plot(tt, type="b")
++ 	dev.off()
++ }
+> 
+> washers = dir(pattern="washer_log_\\d{4}-\\d{2}-\\d{2}-\\d{6}$")
+> 
+> for (f in washers){
++ 	png(paste(f, ".png", sep=""), width=1024, height=800)
++ 	tt <- read.csv(f, col.names=c("time", "power"))
++ 	tt$time <- as.POSIXct(tt$time, origin="1970-01-01")
++ 	plot(tt, type="b")
++ 	dev.off()
++ }
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  0.966   0.026   0.992 

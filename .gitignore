@@ -1,2 +1,4 @@
 dryer_log*
 foo
+.RData
+.Rhistory
